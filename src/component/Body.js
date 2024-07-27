@@ -1,6 +1,7 @@
 import OrderDetail from './OrderDetail';
 import useApi from '../utils/useApi';
 import { useState } from 'react';
+import Shimmer from './Shimmer';
 
 
 const Body = () => {
@@ -108,7 +109,7 @@ const Body = () => {
         setFilterData(item)
     }
 
-    if (data.length === 0) return <h1>No data..!!!</h1>;
+    if (data.length === 0) return <Shimmer />;
 
     return (
         <div>
