@@ -6,7 +6,7 @@ import Shimmer from './Shimmer';
 
 const Body = () => {
 
-    const {data , filterData, setFilterData} = useApi();
+    const { data, filterData, setFilterData } = useApi();
 
     const [searchText, setSearchText] = useState('');
 
@@ -95,7 +95,7 @@ const Body = () => {
             setFilterData(item)
         } else {
             const item = data.filter((item) => (
-                item.OrderID === searchText || item.NSInternalOrderID === searchText || item.SKU === searchText
+                item.OrderID === searchText || item.NSInternalOrderID === searchText || item.SKU === searchText || item.State === searchText || item.City === searchText
             ))
             setFilterData(item)
         }
@@ -114,18 +114,18 @@ const Body = () => {
     return (
         <div>
             <div className='box'>
-                <div className='search-box'>
-                    <input type='text' placeholder='Search here...' onChange={e => setSearchText(e.target.value)} value={searchText} />
-                    <button className='button' onClick={() => searchItem(searchText)}>Search</button>
-                    <button className='button' onClick={() => clearText(searchText)}>Clear</button>
-                </div>
-                <h3>Total Orders = {data.length}</h3>
+                        <div className='search-box'>
+                            <input type='text' placeholder='Search here...' onChange={e => setSearchText(e.target.value)} value={searchText} />
+                            <button className='button' onClick={() => searchItem(searchText)}>Search</button>
+                            <button className='button' onClick={() => clearText(searchText)}>Clear</button>
+                        </div>
+                        <h3>Total Orders = {filterData.length}</h3>
             </div>
             <div></div>
             <div className='orders-container'>
                 <div className='order-status'>
                     <h3 onClick={() => allOrders()}>All Orders</h3>
-                    <h3 onClick={()=>filterPending()}>Pending Status</h3>
+                    <h3 onClick={() => filterPending()}>Pending Status</h3>
                     <h3 onClick={() => filterComplete()}>Complete Status</h3>
                     <h3 onClick={() => CreateIF()}>CreateIf</h3>
                     <h3 onClick={() => ifCreated()}>IfCreated</h3>
@@ -135,7 +135,7 @@ const Body = () => {
                     <h3 onClick={() => RETRY()}>Retry</h3>
                     <h3 onClick={() => UpdateC()}>UpdateC</h3>
                     <h3 onClick={() => UploadedToNS()}>UploadedToNS</h3>
-               </div>
+                </div>
                 <div className='orders'>
                     <table border='1'>
                         <thead>

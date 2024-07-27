@@ -21,6 +21,15 @@
     margin: 0;
     box-sizing: border-box;
   }
+  .header {
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
+  .header-container{
+    margin-bottom: 90px;
+  }
   
   .head-left{
     height: 12vh;
