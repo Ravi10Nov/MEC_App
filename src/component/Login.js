@@ -21,7 +21,7 @@ const Login = () => {
                         <input type="password" placeholder="Enter the password" name="password"></input>
                         <button className="btn" type="submit">Login</button>
                     </form>
-                    <p className="account" onClick={()=>nevigateRegister()}>Don't have account? Register now</p>
+                    <p className="account" onClick={()=>nevigateRegister()}>Don't have account?<span>Register now</span></p>
                 </div>
             </div>
         </div>
