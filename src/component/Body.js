@@ -10,13 +10,6 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState('');
 
-    const filterPending = () => {
-        const status = data.filter((item) => (
-            item.Status === 'Pending'
-        ))
-        setFilterData(status)
-    }
-
     const allOrders = () => {
         const allData = data.filter((item) => (
             item
@@ -24,65 +17,9 @@ const Body = () => {
         setFilterData(allData)
     }
 
-    const filterComplete = () => {
-        const status = data.filter((item) => (
-            item.Status === 'COMPLETE' || item.Status === 'Complete'
-        ))
-        setFilterData(status)
-    }
-
-    const ifCreated = () => {
-        const status = data.filter((item) => (
-            item.Status === 'IfCreated'
-        ))
-        setFilterData(status)
-    }
-
-    const CreateIF = () => {
-        const status = data.filter((item) => (
-            item.Status === 'CreateIF'
-        ))
-        setFilterData(status)
-    }
-
-    const IFCreated3 = () => {
-        const status = data.filter((item) => (
-            item.Status === 'IFCreated3'
-        ))
-        setFilterData(status)
-    }
-
-    const IFERROR = () => {
-        const status = data.filter((item) => (
-            item.Status === 'IFERROR'
-        ))
-        setFilterData(status)
-    }
-
-    const InvoiceError = () => {
-        const status = data.filter((item) => (
-            item.Status === 'InvoiceError'
-        ))
-        setFilterData(status)
-    }
-
-    const RETRY = () => {
-        const status = data.filter((item) => (
-            item.Status === 'RETRY'
-        ))
-        setFilterData(status)
-    }
-
-    const UpdateC = () => {
-        const status = data.filter((item) => (
-            item.Status === 'UpdateC'
-        ))
-        setFilterData(status)
-    }
-
-    const UploadedToNS = () => {
-        const status = data.filter((item) => (
-            item.Status === 'UploadedToNS'
+    const findStatus = (orderStatus) =>{
+        const status = data.filter((item)=>(
+            item.Status === orderStatus
         ))
         setFilterData(status)
     }
@@ -125,16 +62,16 @@ const Body = () => {
             <div className='orders-container'>
                 <div className='order-status'>
                     <h3 onClick={() => allOrders()}>All Orders</h3>
-                    <h3 onClick={() => filterPending()}>Pending Status</h3>
-                    <h3 onClick={() => filterComplete()}>Complete Status</h3>
-                    <h3 onClick={() => CreateIF()}>CreateIf</h3>
-                    <h3 onClick={() => ifCreated()}>IfCreated</h3>
-                    <h3 onClick={() => IFCreated3()}>IFCreated3</h3>
-                    <h3 onClick={() => IFERROR()}>IFerror</h3>
-                    <h3 onClick={() => InvoiceError()}>InvoiceError</h3>
-                    <h3 onClick={() => RETRY()}>Retry</h3>
-                    <h3 onClick={() => UpdateC()}>UpdateC</h3>
-                    <h3 onClick={() => UploadedToNS()}>UploadedToNS</h3>
+                    <h3 onClick={() => findStatus('Pending')}>Pending Status</h3>
+                    <h3 onClick={() => findStatus('COMPLETE')}>Complete Status</h3>
+                    <h3 onClick={() => findStatus('IfCreated')}>CreateIf</h3>
+                    <h3 onClick={() => findStatus('CreateIF')}>IfCreated</h3>
+                    <h3 onClick={() => findStatus('IFCreated3')}>IFCreated3</h3>
+                    <h3 onClick={() => findStatus('IFERROR')}>IFerror</h3>
+                    <h3 onClick={() => findStatus('InvoiceError')}>InvoiceError</h3>
+                    <h3 onClick={() => findStatus('RETRY')}>Retry</h3>
+                    <h3 onClick={() => findStatus('UpdateC')}>UpdateC</h3>
+                    <h3 onClick={() => findStatus('UploadedToNS')}>UploadedToNS</h3>
                 </div>
                 <div className='orders'>
                     <table border='1'>
