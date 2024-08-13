@@ -14,7 +14,7 @@ const useApi = () =>{
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/orders');
+            const response = await axios.get('http://localhost:8000/orders',{ withCredentials: true });
             setData(response.data);
             setFilterData(response.data)
         } catch (error) {

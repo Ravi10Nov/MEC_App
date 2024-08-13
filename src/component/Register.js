@@ -16,7 +16,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleInput = (e) => {
-        setUser({ ...user, [e.target.name]: [e.target.value] })
+        setUser({ ...user, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = async (e) => {
@@ -24,16 +24,14 @@ const Register = () => {
         try {
             const response = await axios.post('http://localhost:8000/auth/register', user)
             setMessage(response.data.message);
-            navigate('/login')
+            // navigate('/login')
+            if (response.data.message === 'User registered successfully'){
+                navigate('/login')
+            }
         }
         catch (error) {
             setMessage(error.response.data.message);
         }
-        setUser({
-            name: '',
-            email: '',
-            password: ''
-        })
     }
 
     const nevigateLogin = () => {
@@ -56,7 +54,7 @@ const Register = () => {
                     </form>
                     <p className="account" onClick={() => nevigateLogin()}>Already have account?<span>Login now</span></p>
                 </div>
-                <h4>{message}</h4>
+                <h4 style={{margin:'20px 25px', color:'red'}}>{message}</h4>
             </div>
         </div>
     )

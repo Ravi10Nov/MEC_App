@@ -31,8 +31,12 @@ function App() {
       element: <AppLayout />,
       children: [
         {
-          path: 'home',
+          path: '/',
           element: <Body />
+        },
+        {
+          path: '/home',
+          element: <Home />
         }
       ]
     }
